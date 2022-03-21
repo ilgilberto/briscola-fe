@@ -1,14 +1,9 @@
 <!DOCTYPE HTML>
-<!--
-	Big Picture by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <html>
 	<head>
-		<title>Big Picture by HTML5 UP</title>
+		<title>Briscola powered by mandarini.info</title>
 		<base href="/">
-		<meta charset="utf-8" />
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		
 	</head>
@@ -20,9 +15,9 @@
 				<nav>
 					<ul>
 						<li><a href="#intro">Intro</a></li>
-						<li><a href="#one">Come si gioca</a></li>
+						<li><a href="#one">A cosa serve questa APP ?</a></li>
 						<li><a href="#two">Seleziona</a></li>
-						<li><a href="#work">GIOCO</a></li>
+						<li><a href="#work">GIOCA</a></li>
 						<li><a href="#contact">Contatti</a></li>
 					</ul>
 				</nav>
@@ -45,38 +40,50 @@
 			<section id="one" class="main style2 right dark fullscreen">
 				<div class="content box style2">
 					<header>
-						<h2>Di cosa si tratta</h2>
+						<h2>A cosa serve questa APP</h2>
 					</header>
-					<p>La briscola, famoso gioco di carte italiano, riportato sul web. Due giocatori si sfidano e puoi decidere se siano umani o computer</p>
+					<p>La briscola, famoso gioco di carte italiano, riportato sul web. Due giocatori si sfidano e puoi decidere se siano umani o computer.</p>
 				</div>
 				<a href="#two" class="button style2 down anchored">Comincia</a>
 			</section>
 
 		<!-- Two -->
-			<section id="two" class="main style2 left dark fullscreen">
+			<section id="two" class="main style2 left dark fullscreen inseriscidati" style="padding-top:0px;padding-bottom: 0%;">
 				<div class="content box style2">
 					<header>
-						<h2>Scegli i partecipanti</h2>
+						<h2>Scegli i partecipanti e poi inizia il gioco</h2>
 					</header>
-					<p>Lorem ipsum dolor sit amet et sapien sed elementum egestas dolore condimentum.
-					Fusce blandit ultrices sapien, in accumsan orci rhoncus eu. Sed sodales venenatis arcu,
-					id varius justo euismod in. Curabitur egestas consectetur magna.</p>
+					
+                     <fieldset>
+						 <legend>Giocatore 1</legend>
+						 <div>Nome:<input type="text" value="" placeholder="nome giocatore" id="giocatore1"></div>
+						 <div>Tipo:<select id ="tipo1">
+							        <option value="">Seleziona</option>
+									<option value="c">Computer</option>
+									<option value="u">Umano</option>
+									</select>
+						 </div>
+						</fieldset>
+						<fieldset>
+							<legend>Giocatore 2</legend>
+							<div>Nome:<input type="text" value="" placeholder="nome giocatore" id="giocatore2"></div>
+							<div>Tipo:<select id ="tipo2">
+									   <option value="">Seleziona</option>
+									   <option value="c">Computer</option>
+									   <option value="u">Umano</option>
+									   </select>
+							</div>
+						   </fieldset>
+					
 				</div>
 				<a href="#work" class="button style2 down anchored">Next</a>
 			</section>
 
 		<!-- Work -->
-			<section id="work" class="main style3 primary">
-				<div class="content">
-					<header>
-						<h2>GIOCO</h2>
-						<p>Lorem ipsum dolor sit amet et sapien sed elementum egestas dolore condimentum.
-						Fusce blandit ultrices sapien, in accumsan orci rhoncus eu. Sed sodales venenatis
-						arcu, id varius justo euismod in. Curabitur egestas consectetur magna vitae.</p>
-					</header>
-
-					<app-root></app-root>
+			<section id="work">
+				<app-root></app-root>
 			</section>
+			
 
 		<!-- Contact -->
 			<section id="contact" class="main style3 secondary">
@@ -85,18 +92,7 @@
 						<h2>Vuoi contattarmi ?</h2>
 						<p>Usa il form di sottto.</p>
 					</header>
-					<div class="box">
-						<form method="post" action="#">
-							<div class="fields">
-								<div class="field half"><input type="text" name="name" placeholder="Name" /></div>
-								<div class="field half"><input type="email" name="email" placeholder="Email" /></div>
-								<div class="field"><textarea name="message" placeholder="Message" rows="6"></textarea></div>
-							</div>
-							<ul class="actions special">
-								<li><input type="submit" value="Send Message" /></li>
-							</ul>
-						</form>
-					</div>
+                    <message-form></message-form>
 				</div>
 			</section>
 
@@ -105,17 +101,16 @@
 
 				<!-- Icons -->
 					<ul class="icons">
-						<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-						<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-						<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-						<li><a href="#" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-						<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
-						<li><a href="#" class="icon brands fa-pinterest"><span class="label">Pinterest</span></a></li>
+						<li><a href="skype:live:.cid.897a7a795eb2b5d?chat" class="icon brands fa-skype"><span class="label">Skype</span></a></li>
+						<li><a href="https://www.facebook.com/gilberto.mandarini" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+						<li><a href="https://www.instagram.com/ilgilberto" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="https://www.linkedin.com/in/gilberto-mandarini-1743b886/?originalSubdomain=it" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+					    <li><a href="https://github.com/ilgilberto/" class="icon brands fa-github"><span class="label">GitHub</span></a>
 					</ul>
 
 				<!-- Menu -->
 					<ul class="menu">
-						<li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+						<li>&copy; <a href="https://mandarini.info" target="_BLANK">mandarini.info</a></li><li><div id="angularVersion"></div></li>
 					</ul>
 
 			</footer>

@@ -34,6 +34,7 @@
               "src/styles.scss"
             ],
             "scripts": ["src/assets/js/jquery.min.js",
+              "src/assets/js/jquery-ui.min.js",
               "src/assets/js/jquery.poptrox.min.js",
               "src/assets/js/jquery.scrolly.min.js",
               "src/assets/js/jquery.scrollex.min.js",
@@ -82,7 +83,8 @@
               "browserTarget": "briscola-fe:build:production"
             },
             "development": {
-              "browserTarget": "briscola-fe:build:development"
+              "browserTarget": "briscola-fe:build:development",
+              "proxyConfig": "proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

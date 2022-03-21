@@ -2310,3 +2310,13 @@ input, select, textarea {
 			}
 
 		}
+
+		$fontinseriscidati:1.2vw;
+		.inseriscidati {
+			font-size:$fontinseriscidati;
+			  input {font-size:$fontinseriscidati;}
+			  select{font-size:1vw;}
+			  option{font-size:$fontinseriscidati;}
+			  h2 {font-size:2.0vw;}
+			  legend {font-weight: bold;}
+		}

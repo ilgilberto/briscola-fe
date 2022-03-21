@@ -1,0 +1,12 @@
+{
+  
+    "/briscolarestservices/*": {
+      "target": "http://localhost:9090/",
+      "secure": false,
+      "changeOrigin": true,
+      "pathRewrite": 
+        {"^/briscolarestservices/briscola/" : "/briscola/",
+         "^/briscolarestservices/sendMessage" : "/sendMessage"}
+
+    }
+  }

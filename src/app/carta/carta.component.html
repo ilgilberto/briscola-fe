@@ -1,0 +1,11 @@
+<div *ngIf="id == 'KK'" class="coperta carta">
+    <img src = "assets/images/gioco/retro.png" style="width:100%">
+</div>
+    
+<div *ngIf="id !='' && id != undefined && id != 'KK'" [class]="'carta'+(selectable?' selectable':'')" (click)="select()">
+   <img [src] = "'assets/images/gioco/'+id+'.png'" style="width:100%">
+</div>
+
+<div *ngIf="id == '' || id == undefined" class="carta hidden">
+    <img src = "assets/images/gioco/retro.png" style="width:100%;">
+</div>

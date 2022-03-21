@@ -1,0 +1,26 @@
+<div class="box">
+  <p *ngIf="!messageForm.form.valid" class="alert">Compila tutti i campi del form</p>
+  <form (ngSubmit)="onSubmit($event)" #messageForm="ngForm">
+    <div class="fields">
+      <div class="field half"><input type="text" name="name" required placeholder="Nome" [(ngModel)]="model.name" name="name" #name="ngModel" />
+        <div [hidden]="name.valid || email.pristine" class="alert">
+            Devi inserire il tuo nome
+        </div>
+      </div>
+      <div class="field half"><input type="email" name="email" required placeholder="Email" email [(ngModel)]="model.email" #email="ngModel"/>
+        <div [hidden]="email.valid || email.pristine" class="alert">
+            Devi inserire la tua e-mail, vera :)
+        </div>
+      </div>
+      <div class="field">
+        <textarea name="message" required placeholder="Scrivi qui il tuo messaggio" rows="6" [(ngModel)]="model.content"  #content="ngModel"></textarea>
+        <div [hidden]="content.valid || content.pristine" class="alert">
+           Cosa vuoi dirmi ?
+        </div>
+     </div>
+    </div>
+    <ul class="actions special">
+      <li><input type="submit"  [disabled]="!messageForm.form.valid" [class]="!messageForm.form.valid ? 'notallowed' :'' " value="Spedisci" /></li>
+    </ul>
+  </form>
+</div>

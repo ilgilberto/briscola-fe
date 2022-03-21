@@ -1,0 +1,154 @@
+table {
+    width: auto !important;
+}
+
+.layer {
+    position: absolute;
+    top: 1.5vw;
+    left: 1.6vw;
+    width: 79%;
+    height: 14vw;
+    z-index: 1;
+    background-color: blue;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+  }
+  
+  .inner {
+    position: absolute;
+    top: 1.5vw;
+    left: 1.6vw;
+    width: 79%;
+    height: 14vw;
+    z-index: 2;
+    color: white;
+    opacity: 1;
+    font-size: 2.2vw;
+    filter: alpha(opacity=100);
+  }
+  
+  .img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 88%;
+  }
+  .img img {
+    width: 100%;
+  }
+  
+  #container {
+    width: 100%;
+  }
+  
+  .cartaContainer {
+    float: left;
+    width: 33%;
+  }
+  
+  .punteggio {
+    width: 100%;
+    background-color: blue;
+    color: white;
+  }
+  
+  #displaycontainer {
+    float: left;
+    width: 33%;
+    margin-right: 33%;
+  }
+  
+  #displaycontainer > div {
+    position: relative;
+    float: right;
+    width: 100%;
+    font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+    font-size: 1.8vw;
+  }
+  
+  @media (pointer:none), (pointer:coarse) {
+    #displaycontainer> div {
+      font-size: 3vw;
+    }
+  
+  }
+  
+  #displaycontainerP {
+    float: left;
+    width: 100%;
+  }
+  
+  #displaycontainerP > div {
+    position: relative;
+    width: 90%;
+    font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+    font-size: 3.9vw;
+    margin-left: 7%;
+  }
+  
+  @media (pointer:none), (pointer:coarse) {
+    #displaycontainerP > div {
+      z-index: 1;
+      font-size: 7.5vw;}
+    }
+  
+  
+  #displaycontainerP {
+    display: none;
+  }
+  
+  .carteDaGiocare {
+    float: right;
+  }
+  
+  .carteDaGiocare table {
+
+    position: relative;
+    right: 1.5vw;
+  }
+  
+  /*  Modifiche per portrait (orientamento dispositivi mobili) */
+  
+  .layerP {
+    position: relative;
+    top: 4.5vw;
+    left: 4.9vw;
+    width: 78%;
+    height: 39vw;
+    z-index: 1;
+    background-color: blue;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+  }
+  .innerP {
+    position: relative;
+    bottom: 35vw;
+    left: 5.3vw;
+    width: 78%;
+    height: 39vw;
+    z-index: 2;
+    line-height: 8vw;
+    color: white;
+    opacity: 1;
+    filter: alpha(opacity=100);
+  }
+  @media all and (orientation: portrait) {
+    #displaycontainer {
+      display: none;
+    }
+    #displaycontainerP {
+      display: block;
+    }
+  }
+
+  .actionbutton {width:100%;
+                 text-align: center;
+                 margin-top:.3vw}
+
+  .carteSelezionabili {cursor:pointer;}
+
+  .vincitore {background-color: yellow;
+    color: red;
+    width: 40vw;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;}
+  

@@ -1,0 +1,4 @@
+$notallowed_cursor : not-allowed;
+
+.alert {color:red;font-size:smaller;}
+.notallowed {cursor:$notallowed_cursor};
