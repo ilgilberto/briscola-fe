@@ -10,13 +10,13 @@
   </div>
   </div> 
   <div style="clear:both">&nbsp;</div>
-  <div style="width:100%;">
+  
    <div  class="cartaContainer">
      <table  style="position:relative;left:9vw;">
-   <tr><td><carta [id]="mazzo"></carta></td>
-   <td><carta [id]="briscola"></carta></td>
-  </tr>
-   </table>
+     <tr><td><carta [id]="mazzo"></carta></td>
+      <td><carta [id]="briscola"></carta></td>
+     </tr>
+     </table>
   </div>
   <div id="displaycontainer">  
        <div>
@@ -24,7 +24,8 @@
         <div class="layer"></div>
           <div class="inner">
                   {{print}}
-           <p *ngIf="tastoContent != null" class="actionbutton"><button  (click)="tastoHandler()">{{tastoContent}}</button></p>
+                  <p *ngIf="!wait && tastoContent != null" class="actionbutton"><button  (click)="tastoHandler()">{{tastoContent}}</button></p>
+                  <p *ngIf="wait" class="actionbutton"><img src="assets/images/spinner.gif"></p>
           </div>
      </div>
   </div>
@@ -42,10 +43,11 @@
    </div>
    <div id="displaycontainerP">  
     <div>
-       <div class="img"><img src="https://raw.githubusercontent.com/ilgilberto/angular-ivy-xda27y/master/assets/display.gif" ></div>
+       <div class="img"><img src="assets/images/gioco/display.gif" ></div>
      <div class="layerP"></div>
        <div class="innerP">{{print}}
-        <p *ngIf="tastoContent != null" class="actionbutton"><button  (click)="tastoHandler()">{{tastoContent}}</button></p>
+        <p *ngIf="!wait && tastoContent != null" class="actionbutton"><button  (click)="tastoHandler()">{{tastoContent}}</button></p>
+        <p *ngIf="wait"><img src="assets/images/spinner.gif"></p>
        </div>
   </div>
 </div>

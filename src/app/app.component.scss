@@ -45,6 +45,20 @@ table {
     float: left;
     width: 33%;
   }
+
+  .carteDaGiocare {
+    float: right;
+  }
+  
+  .carteDaGiocare table {
+
+    position: relative;
+    right: 1.5vw;
+
+    td {display: hidden;}
+  }
+
+  
   
   .punteggio {
     width: 100%;
@@ -97,15 +111,7 @@ table {
     display: none;
   }
   
-  .carteDaGiocare {
-    float: right;
-  }
-  
-  .carteDaGiocare table {
 
-    position: relative;
-    right: 1.5vw;
-  }
   
   /*  Modifiche per portrait (orientamento dispositivi mobili) */
   
@@ -151,4 +157,7 @@ table {
     color: red;
     width: 40vw;
     font-family: Verdana, Geneva, Tahoma, sans-serif;}
-  
+
+  .inner img {width: 3vw;}
+  .innerP img {width: 20vw;margin-top:0.5vw;}
+  .innerP p {text-align:center;}

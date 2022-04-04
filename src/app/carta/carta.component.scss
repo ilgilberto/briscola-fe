@@ -2,9 +2,13 @@
 
 .carta {
     width: 8.5vw;
+    height: 16vw;
     border-width: 4px;
     border-style: solid;
-    padding: 0.3vw;
+    padding-left: 0.5vw;
+    padding-right: 0.5vw;
+    padding-top: 0.9vw;
+    padding-bottom: 0vm;
     border-radius: 15px;
     float: right;
     margin-right: 33%;
@@ -20,11 +24,13 @@
   
   @media all and (orientation: portrait) {
     .carta {
-      width: 15vw;
+      width: 14.4vw;
+      height: 26.5vw;
     }
   
     .coperta {
-      width: 13.8vw;
+      width: 14vw;
+      height: 26.5vw;
     }
   }
 

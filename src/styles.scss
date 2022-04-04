@@ -2249,6 +2249,17 @@ input, select, textarea {
 		background-attachment: fixed, fixed;
 		background-position: top left, bottom center;
 		background-repeat: repeat, no-repeat;
+		p {
+			font-size:3.5vw;
+		}
+	}
+
+	@media (pointer:none), (pointer:coarse)  and (orientation: portrait) {
+		#intro {
+			p {
+				font-size:7vw;
+			}
+		}
 	}
 
 /* One */
@@ -2311,12 +2322,58 @@ input, select, textarea {
 
 		}
 
-		$fontinseriscidati:1.2vw;
+		$fontinseriscidati:1.5vw;
+		$fontinseriscidati-portrait:5vw;
+		$fontinseriscidati-landscape:2vw;
 		.inseriscidati {
+			
 			font-size:$fontinseriscidati;
 			  input {font-size:$fontinseriscidati;}
-			  select{font-size:1vw;}
+			  select{font-size:2vw;}
 			  option{font-size:$fontinseriscidati;}
-			  h2 {font-size:2.0vw;}
-			  legend {font-weight: bold;}
+			  h2 {font-size:2.0vw;padding-top:1vw;}
+			  legend {font-weight: bold;
+				      line-height: 8vw;}
+		}
+
+		@media (pointer:fine) {
+
+			.inseriscidati > div {padding: 0.5em 2.5em 3.5em 3.5em !important;}
+			.inseriscidati {
+                select {font-size:1.5vw;padding:0.5vw;}
+				input {line-height:1vw ;font-size:1.5vw;padding:0.5vw;}
+				header {margin-bottom: 1vw;}
+				
+				fieldset {
+					legend { line-height: 2.5vw;}
+				}
+			}
+
+		}
+		@media (pointer:none), (pointer:coarse)  and (orientation: landscape) {
+			.inseriscidati {
+				header {margin-bottom:0.5vw;}
+				line-height: 3vw;
+				  font-size:$fontinseriscidati-landscape;
+				  input {font-size:$fontinseriscidati-landscape;
+					      padding:.5vw;}
+				  select{font-size:1.5vw;
+					     padding:.7vw;}
+				  option{font-size:$fontinseriscidati-landscape;}
+				  h2 {font-size:2.6vw;}
+			}
+		}
+
+		@media (pointer:none), (pointer:coarse)  and (orientation: portrait) {
+			.inseriscidati {
+				header {margin-bottom:1.5vw;}
+				 div {text-align:left;}
+				 fieldset {margin-top:3vw;}
+				  font-size:$fontinseriscidati-portrait;
+				  input {font-size:$fontinseriscidati-portrait;padding: 1.5vw;}
+				  select{font-size:4.5vw;padding: 1.5vw;}
+				  option{font-size:$fontinseriscidati-portrait;}
+				  h2 {font-size:7.2vw;}
+			}
+			.inseriscidati > div {  line-height: 13vw;}
 		}

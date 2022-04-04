@@ -45,8 +45,7 @@ export class BriscolaService {
     )
   }
 
-  insertMessage(message:Message): Observable<HttpResponse<number>> {
-    alert(message.content);
+  insertMessage(message:Message): Observable<HttpResponse<number>> {  
     return this.http.post<number>(
       '/briscolarestservices/sendMessage', message,
       { observe: 'response', responseType: 'json' }
@@ -59,7 +58,13 @@ export class BriscolaService {
   }
 
   handleError(e: any){
+     if (e.status == 501) {
+       alert("Spiacenti ma la sessione di gioco è scaduta, la partita sarà annullata !");
+       return 'Something bad happened; please try again later.';
+    }
+       else {
      alert("Si è verificato un errore nella connessione con il server:\ncodice dell'errore "+e.status+"\n("+e.message+")");
-     console.log("ERRORE NELLA CHIAMATA AL SERVER",e);
+     console.log("ERRORE NELLA CHIAMATA AL SERVER",e);}
+     return null;
   }
 }

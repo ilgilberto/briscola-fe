@@ -18,22 +18,7 @@ export class AppComponent implements OnInit {
 
 
 ngOnInit(): void {
-
-
-    this.carta1 = 'KK';
-    this.carta2 = 'KK';
-    this.carta3  = 'KK';
-
-    this.mazzo = 'KK';
-    this.briscola = 'KK';
-
-    this.giocata1 = 'KK';
-    this.giocata2 = 'KK';
-
-    this.print = "Sei pronto per giocare ?";
-    this.tastoContent = "Inizia la partita";
-    this.tastoHandler = this.iniziaIlGioco;
-   
+    this.execInit(); 
 }
 
   tipoPartita! : TipoPartita;
@@ -48,6 +33,8 @@ ngOnInit(): void {
   giocata2!: string;
 
   print!: string;
+
+  wait:boolean = false;
 
   tastoContent!: string|null;
   tastoHandler: any;
@@ -123,8 +110,6 @@ execShift() {
     if (n>2) {this.carta3 = 'KK'} 
   }
 
-  
-  console.log("Stato del gioco",this.game);
   const turno = this.game.turno-1;
   if (this.game.mano.cartaSulTavolo == null) {
     this.giocata1 = '';
@@ -132,6 +117,7 @@ execShift() {
   }
   this.print = "Tocca a "+this.giocatore[turno];
   this.tastoContent = "Avanti";
+  this.wait = false;
   if (this.tipologia[turno]  == 'u') {
   this.tastoHandler = this.shiftHuman;}
   else if (this.tipologia[turno]  == 'c') {
@@ -161,10 +147,14 @@ public sceltaCarta(n:number) {
     if (z.body != null) {
       this.game = z.body;
       this.completeShift(carta,last);}
-    });
-}
+    }, error => {
+      if (error != null) {
+      this.game != null;this.execInit();}});
+  }
+
 
 shiftComputer() {
+  this.wait = true;
   var last:boolean = this.game.mano.cartaSulTavolo != null;
   var carte : string[];
   if (this.game.turno == 1) {
@@ -179,7 +169,9 @@ shiftComputer() {
         this.completeShift(this.game.ultimaCartaGiocataComputer,last);
       }, 500));
       }
-    });  
+    }, error => { 
+       if (error != null) {
+       this.game != null;this.execInit()}});
 }
 
 completeShift(carta:string,last:boolean) {
@@ -189,6 +181,7 @@ completeShift(carta:string,last:boolean) {
          var winner = this.game.mano.vincitore-1;
          if (this.game.turno == 0) {
            animate();
+            this.wait = false;
             var vincitore = this.game.punteggio1>this.game.punteggio2 ? this.giocatore[0] : this.giocatore[1];
             this.print = 'Vince la partita '+vincitore;
             this.tastoContent = 'Gioca nuovamente';
@@ -198,6 +191,7 @@ completeShift(carta:string,last:boolean) {
          this.print = "Vince la mano "+this.giocatore[winner];
          this.tastoContent = "Avanti"
          this.tastoHandler = this.execShift;
+         this.wait = false;
          if (this.game.carteNelMazzo == 0) {
            this.briscola = "";
            this.mazzo = "";
@@ -232,6 +226,22 @@ completeShift(carta:string,last:boolean) {
        }
        
  }
+ private execInit() {
+  this.carta1 = 'KK';
+  this.carta2 = 'KK';
+  this.carta3  = 'KK';
+
+  this.mazzo = 'KK';
+  this.briscola = 'KK';
+
+  this.giocata1 = 'KK';
+  this.giocata2 = 'KK';
+
+  this.print = "Sei pronto per giocare ?";
+  this.tastoContent = "Inizia la partita";
+  this.tastoHandler = this.iniziaIlGioco;
+  this.wait=false;
+}
 
 }
 
@@ -239,15 +249,20 @@ completeShift(carta:string,last:boolean) {
 function animate() {
    
   $("#displaycontainer .inner" ).addClass( "vincitore", 1000, callbackAnim );
-  $("#displaycontainerP .inner" ).addClass( "vincitore", 1000, callbackAnim );
+  $("#displaycontainerP .innerP" ).addClass( "vincitore", 1000, callbackAnim );
   
 }
 
 function callbackAnim() {
   setTimeout(function() {
     $("#displaycontainer .inner" ).removeClass( "vincitore" );
-  }, 2000 );
+    $("#displaycontainerP .innerP" ).removeClass( "vincitore" );
+  }, 2500 );
 }
+
+
+
+
 
 
 
