@@ -110,6 +110,8 @@ table {
   #displaycontainerP {
     display: none;
   }
+
+  #numeroCarte {font-style: italic;}
   
 
   
@@ -144,6 +146,12 @@ table {
     }
     #displaycontainerP {
       display: block;
+    }
+    .punteggio {
+      font-size:4.5vw;
+      padding: 0.5vw;
+      margin-bottom:3vw;
+      span {font-size:4vw;}
     }
   }
 

@@ -9,6 +9,7 @@ import { BriscolaService } from './services/BriscolaService';
 import { FormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
+import { AudioService } from './services/AudioService';
 
 
 @NgModule({
@@ -23,7 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     HttpClientModule
   ],
-  providers: [BriscolaService,HttpClientModule],
+  providers: [BriscolaService,HttpClientModule,AudioService],
   bootstrap: [AppComponent,FormComponent]
 })
 export class AppModule { }

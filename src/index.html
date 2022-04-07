@@ -6,7 +6,10 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2" />
 		<link rel="shortcut icon" href="https://mandarini.info/HomePage/images/mandarini.ico" type="image/x-icon">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		
+		<meta property="og:title" content="Briscola online con carte piacentine" />
+        <meta property="og:description" content="La tradizione del più classico dei giochi di carte italiano sposa l'intelligenza artificiale.
+		Due giocatori si sfidano all'ultima carta ma decidi tu se siano umani o computer." />
+        <meta property="og:image" content="https://briscola.mandarini.info/assets/images/esempio.jpg" />
 	</head>
 	<body class="is-preload">
 
@@ -43,7 +46,8 @@
 					<header>
 						<h2>Di cosa si tratta ?</h2>
 					</header>
-					<p>Rivivi le emozioni del gioco  della <strong>briscola</strong> su qualsiasi dispositivo. 
+					<p>Rivivi le emozioni del gioco  della <strong>briscola</strong> su qualsiasi dispositivo  con
+						carte piacentine. 
 					   La tradizione del più classico dei giochi di carte italiano sposa l'intelligenza artificiale.
 					   Due giocatori si sfidano all'ultima carta ma decidi tu se siano umani o computer.<br>
 					   Configura il gioco nella pagina seguente e che la sfida abbia inizio !
@@ -61,7 +65,7 @@
 					
                      <fieldset>
 						 <legend>Giocatore 1</legend>
-						 <div>Nome:<input type="text" value="" placeholder="nome giocatore" id="giocatore1"></div>
+						 <div>Nome:<input type="text" value="" placeholder="nome giocatore" id="giocatore1" maxlength="11" onblur="this.value=this.value.substring(0,11);"></div>
 						 <div>Tipo:<select id ="tipo1">
 							        <option value="">Seleziona</option>
 									<option value="c">Computer</option>
@@ -71,7 +75,7 @@
 						</fieldset>
 						<fieldset>
 							<legend>Giocatore 2</legend>
-							<div>Nome:<input type="text" value="" placeholder="nome giocatore" id="giocatore2"></div>
+							<div>Nome:<input type="text" value="" placeholder="nome giocatore" id="giocatore2" maxlength="11" onblur="this.value=this.value.substring(0,11);"></div>
 							<div>Tipo:<select id ="tipo2">
 									   <option value="">Seleziona</option>
 									   <option value="c">Computer</option>
@@ -79,6 +83,9 @@
 									   </select>
 							</div>
 						   </fieldset>
+
+						   <img id="soundon" src="assets/images/audio.gif" title="Audio acceso durante il gioco" onclick="audiooff()"/>
+						   <img id="soundoff" src="assets/images/stop.gif" class="hide" title="Audio disattivato" onclick="audioon()"/>
 					
 				</div>
 				<a href="#work" class="button style2 down anchored">Next</a>

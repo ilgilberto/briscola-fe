@@ -218,3 +218,14 @@
 			});
 
 })(jQuery);
+
+
+function audiooff() {
+	$('#soundon').addClass('hide');
+	$('#soundoff').removeClass('hide');
+}
+
+function audioon() {
+	$('#soundon').removeClass('hide');
+	$('#soundoff').addClass('hide');
+}

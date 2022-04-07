@@ -1,5 +1,7 @@
+
 import { Component, OnInit, VERSION,Inject } from '@angular/core';
 import { Status } from './domain/Status';
+import { AudioService } from './services/AudioService';
 import { BriscolaService } from './services/BriscolaService';
 
 
@@ -14,7 +16,7 @@ enum TipoPartita {ComputerComputer,Giocatore1,Giocatore2,UmanoUmano};
 })
 export class AppComponent implements OnInit {
   
-  constructor(public service : BriscolaService) {}
+  constructor(public service : BriscolaService,private audioService: AudioService) {}
 
 
 ngOnInit(): void {
@@ -49,8 +51,9 @@ ngOnInit(): void {
   
 
 iniziaIlGioco():void {
-  
+
    if (this.checkConfigurazione()) {
+     this.audioService.playStart(this.checkSound());
      this.service.startGame().subscribe(z => {
        if (z.body != null) {
          this.game = z.body;
@@ -135,6 +138,7 @@ shiftHuman() {
 
 
 public sceltaCarta(n:number) {
+  this.audioService.playCarte(this.checkSound());
   this.carteSelezionabili = false;
   var carta = "";
   switch(n) {
@@ -166,6 +170,7 @@ shiftComputer() {
       this.game = z.body;
       this.nascondiCartaGiocataComputer(carte);
       new Promise(f => setTimeout(() => {
+        this.audioService.playCarte(this.checkSound());
         this.completeShift(this.game.ultimaCartaGiocataComputer,last);
       }, 500));
       }
@@ -180,6 +185,7 @@ completeShift(carta:string,last:boolean) {
          this.giocata2 = carta;
          var winner = this.game.mano.vincitore-1;
          if (this.game.turno == 0) {
+           this.audioService.playEnd(this.checkSound());
            animate();
             this.wait = false;
             var vincitore = this.game.punteggio1>this.game.punteggio2 ? this.giocatore[0] : this.giocatore[1];
@@ -189,6 +195,7 @@ completeShift(carta:string,last:boolean) {
             return;
          }
          this.print = "Vince la mano "+this.giocatore[winner];
+         this.verdetto(winner);
          this.tastoContent = "Avanti"
          this.tastoHandler = this.execShift;
          this.wait = false;
@@ -243,9 +250,33 @@ completeShift(carta:string,last:boolean) {
   this.wait=false;
 }
 
+private verdetto(winner:number) {
+  if (this.game.mano.punti== 0) {
+    this.audioService.playNessunVincitore(this.checkSound());
+  }
+  else {
+   if (this.tipoPartita  == TipoPartita.ComputerComputer) {
+     if (winner == 0) {this.audioService.playOK(this.checkSound());}
+     else {this.audioService.playKO(this.checkSound());}
+   }
+   else if (this.tipoPartita  == TipoPartita.UmanoUmano) {
+      this.audioService.playOK(this.checkSound());
+   }
+   else if ((this.tipoPartita  == TipoPartita.Giocatore1 && winner == 0) ||
+        (this.tipoPartita  == TipoPartita.Giocatore2 && winner == 1)) {
+      this.audioService.playOK(this.checkSound());
+   }
+   else {
+    this.audioService.playKO(this.checkSound());
+   }
+  }
 }
 
-
+ private checkSound():boolean {
+     return $("#soundoff").attr("class") == 'hide';
+ }
+ 
+}
 function animate() {
    
   $("#displaycontainer .inner" ).addClass( "vincitore", 1000, callbackAnim );

@@ -40,6 +40,7 @@
    <div style="clear:both">&nbsp;</div>
    <div class="punteggio" *ngIf="giocatore[0] && giocatore[1]">
       {{giocatore[0]+' '+game?.punteggio1+' - '+giocatore[1]+' '+game?.punteggio2}}
+      <span id="numeroCarte" *ngIf="game.carteNelMazzo>0">{{'(Carte nel mazzo:'+game?.carteNelMazzo+')'}}</span>
    </div>
    <div id="displaycontainerP">  
     <div>
