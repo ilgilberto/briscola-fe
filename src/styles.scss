@@ -662,7 +662,7 @@ input, select, textarea {
 		-webkit-transition: background-color 0.2s ease-in-out;
 		-ms-transition: background-color 0.2s ease-in-out;
 		transition: background-color 0.2s ease-in-out;
-		background-color: #98c593;
+		background-color: #25631e;
 		border: 0;
 		border-radius: 3.5em;
 		color: #ffffff;
@@ -2364,6 +2364,7 @@ input, select, textarea {
 			}
 		}
 
+		.briscola {margin-left:15vw;}
 		@media (pointer:none), (pointer:coarse)  and (orientation: portrait) {
 			.inseriscidati {
 				header {margin-bottom:1.5vw;}
@@ -2376,7 +2377,8 @@ input, select, textarea {
 				  h2 {font-size:7.2vw;}
 			}
 			.inseriscidati > div {  line-height: 13vw;}
+			.briscola {margin-left:38vw;}
 		}
-
+		
 		.hide {display:none;}
 		#soundon,#soundoff {cursor:pointer;}

@@ -23,4 +23,20 @@ export class CartaComponent  {
          this.sel.emit();
     }
   }
+
+  isNaN(value:any) : boolean {
+    return isNaN(value);
+  }
+
+  eval(value:string) : number {
+    return eval(value);
+  }
+
+  mazzofactor() : number {
+    if (window.matchMedia("(orientation: portrait)").matches) {
+      return 0.06;
+   }
+    return 0.03;
+  }
+
 }

@@ -1,11 +1,15 @@
-<div *ngIf="id == 'KK'" class="coperta carta">
+<div *ngIf="isNaN(id) && id == 'KK'" class="coperta carta">
     <img src = "assets/images/gioco/retro.png" style="width:100%;">
 </div>
     
-<div *ngIf="id !='' && id != undefined && id != 'KK'" [class]="'carta'+(selectable?' selectable':'')" (click)="select()">
+<div *ngIf="isNaN(id) && id !='' && id != undefined && id != 'KK'" [class]="'carta'+(selectable?' selectable':'')" (click)="select()">
    <img [src] = "'assets/images/gioco/'+id+'.png'" style="width:100%;">
 </div>
 
-<div *ngIf="id == '' || id == undefined" class="carta hidden">
+<div *ngIf="id == '' || id == undefined" class="carta coperta hidden">
+    <img src = "assets/images/gioco/retro.png" style="width:100%;">
+</div>
+
+<div *ngIf="id != '' && !isNaN(id)" class="coperta carta" [style]="'position:absolute;top:'+mazzofactor()*eval(id)+'vw;left:'+mazzofactor()*eval(id)+'vw;'">
     <img src = "assets/images/gioco/retro.png" style="width:100%;">
 </div>

@@ -46,7 +46,7 @@ ngOnInit(): void {
   public giocatore = [null,null];
   public tipologia = [null,null];
 
-  public game  = new Status('','',0,0,0,0);;
+  public game  = new Status('','',0,0,0,36);;
 
   
 
@@ -239,10 +239,10 @@ completeShift(carta:string,last:boolean) {
   this.carta3  = 'KK';
 
   this.mazzo = 'KK';
-  this.briscola = 'KK';
+  this.briscola = '';
 
-  this.giocata1 = 'KK';
-  this.giocata2 = 'KK';
+  this.giocata1 = '';
+  this.giocata2 = '';
 
   this.print = "Sei pronto per giocare ?";
   this.tastoContent = "Inizia la partita";
@@ -270,11 +270,16 @@ private verdetto(winner:number) {
     this.audioService.playKO(this.checkSound());
    }
   }
+
+
+
 }
 
  private checkSound():boolean {
      return $("#soundoff").attr("class") == 'hide';
  }
+
+
  
 }
 function animate() {

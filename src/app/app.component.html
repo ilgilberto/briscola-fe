@@ -12,9 +12,14 @@
   <div style="clear:both">&nbsp;</div>
   
    <div  class="cartaContainer">
-     <table  style="position:relative;left:9vw;">
-     <tr><td><carta [id]="mazzo"></carta></td>
-      <td><carta [id]="briscola"></carta></td>
+     <table  style="position:relative;left:7vw;">
+     <tr><td style="margin-right:40vw;">
+         
+      <carta *ngFor="let item of [].constructor(game.carteNelMazzo); let i = index" [id]="i+''"></carta>
+      </td>
+      <td>
+        <div style="clear: both;"></div>
+        <carta [id]="briscola" class="briscola"></carta></td>
      </tr>
      </table>
   </div>
